@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'WhizClient::India' do
+describe WhizClient::India do
 
   include RequestHelper
 
@@ -17,7 +17,7 @@ describe 'WhizClient::India' do
            with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'User-Agent'=>'Ruby'}).
            to_return(:status => 200, :body => valid_response(:states), :headers => {})
 
-        expect(describe_class.list_all_states).to be_a_kind_of Array
+        expect(described_class.list_all_states).to be_a_kind_of Array
       end
     end
 
@@ -29,7 +29,7 @@ describe 'WhizClient::India' do
            with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'User-Agent'=>'Ruby'}).
            to_return(:status => 200, :body => fake_response, :headers => {})
 
-        expect(describe_class.find_city_by_state(9)).to be_a_kind_of Array
+        expect(described_class.find_city_by_state(9)).to be_a_kind_of Array
       end
     end
 
@@ -41,7 +41,7 @@ describe 'WhizClient::India' do
            with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'User-Agent'=>'Ruby'}).
            to_return(:status => 200, :body => fake_response, :headers => {})
 
-        expect(describe_class.find_city_by_std_codes('33')).to be_a_kind_of Array
+        expect(described_class.find_city_by_std_codes('33')).to be_a_kind_of Array
       end
     end
 
@@ -53,7 +53,7 @@ describe 'WhizClient::India' do
            with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'User-Agent'=>'Ruby'}).
            to_return(:status => 200, :body => fake_response, :headers => {})
 
-        expect(describe_class.find_std_codes_by_location('Calcutta')).to be_a_kind_of Array
+        expect(described_class.find_std_codes_by_location('Calcutta')).to be_a_kind_of Array
       end
     end
 
@@ -65,7 +65,7 @@ describe 'WhizClient::India' do
            with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'User-Agent'=>'Ruby'}).
            to_return(:status => 200, :body => fake_response, :headers => {})
 
-        expect(describe_class.find_city_by_postal_code('700054')).to be_a_kind_of Array
+        expect(described_class.find_city_by_postal_code('700054')).to be_a_kind_of Array
       end
     end
 
@@ -77,19 +77,15 @@ describe 'WhizClient::India' do
            with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'User-Agent'=>'Ruby'}).
            to_return(:status => 200, :body => fake_response, :headers => {})
 
-        expect(describe_class.find_postal_code_by_location('kolkata')).to be_a_kind_of Array
+        expect(described_class.find_postal_code_by_location('kolkata')).to be_a_kind_of Array
       end
     end
   end
 
   context 'When APP_KEY is uninitialized' do
     it 'raise exception' do
-      expect{ describe_class.list_all_states }.to raise_error WhizClient::WhizResponseError
+      expect{ described_class.list_all_states }.to raise_error WhizClient::WhizResponseError
     end
-  end
-
-  def describe_class
-    WhizClient::India
   end
 end
 

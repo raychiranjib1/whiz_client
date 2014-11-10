@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'WhizClient::Geo' do
+describe WhizClient::Geo do
 
   include RequestHelper
   context 'When APP_KEY is defined' do
@@ -18,7 +18,7 @@ describe 'WhizClient::Geo' do
            with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'User-Agent'=>'Ruby'}).
            to_return(:status => 200, :body => valid_response(:time_zones), :headers => {})
 
-        expect(describe_class.time_zones).to be_a_kind_of Array
+        expect(described_class.time_zones).to be_a_kind_of Array
       end
     end
 
@@ -30,19 +30,14 @@ describe 'WhizClient::Geo' do
            with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'User-Agent'=>'Ruby'}).
            to_return(:status => 200, :body => fake_response, :headers => {})
 
-        expect(describe_class.current_time_of_timezone('Pacific Standard Time')).to be_a_kind_of String
+        expect(described_class.current_time_of_timezone('Pacific Standard Time')).to be_a_kind_of String
       end
     end
   end
 
   context 'When APP_KEY is uninitialized' do
     it 'raise exception' do
-      expect{ describe_class.time_zones }.to raise_error WhizClient::WhizResponseError
+      expect{ described_class.time_zones }.to raise_error WhizClient::WhizResponseError
     end
   end
-
-  def describe_class
-    WhizClient::Geo
-  end
-
 end
