@@ -18,7 +18,7 @@ describe 'WhizClient::Geo' do
            with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'User-Agent'=>'Ruby'}).
            to_return(:status => 200, :body => valid_response(:time_zones), :headers => {})
 
-        expect(WhizClient::Geo.time_zones).to be_a_kind_of Array
+        expect(describe_class.time_zones).to be_a_kind_of Array
       end
     end
 
@@ -30,14 +30,19 @@ describe 'WhizClient::Geo' do
            with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'User-Agent'=>'Ruby'}).
            to_return(:status => 200, :body => fake_response, :headers => {})
 
-        expect(WhizClient::Geo.current_time_of_timezone('Pacific Standard Time')).to be_a_kind_of String
+        expect(describe_class.current_time_of_timezone('Pacific Standard Time')).to be_a_kind_of String
       end
     end
   end
+
   context 'When APP_KEY is uninitialized' do
     it 'raise exception' do
-      expect{ WhizClient::Geo.time_zones }.to raise_error WhizClient::WhizResponseError
+      expect{ describe_class.time_zones }.to raise_error WhizClient::WhizResponseError
     end
+  end
+
+  def describe_class
+    WhizClient::Geo
   end
 
 end

@@ -50,6 +50,11 @@ module WhizClient
         parse(response)
       end
 
+      def self.method_missing(method_sym, *arguments, &block)
+        puts method_sym
+        puts arguments
+      end
+
       private
 
       def request_params(params)
