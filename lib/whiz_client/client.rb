@@ -16,8 +16,6 @@ module WhizClient
     INDIAN_API_URL = 'https://www.whizapi.com/api/v2/util/ui/in/'
     GEO_API_URL = 'https://www.WhizAPI.com/api/v2/geo/time/ui/'
 
-    APP_KEY = 'xxxxxxxx'
-
     class << self
 
       def request(params)
@@ -39,6 +37,8 @@ module WhizClient
       private
 
       def construct_indian_api_url(params)
+        raise WhizResponseError.new('WhizClient::Client::APP_KEY is not defined', 500) unless defined? APP_KEY
+
         url = "#{INDIAN_API_URL}#{params[:method_name]}?AppKey=#{APP_KEY}"
         url += "&stateid=#{params[:stateid]}" if params.has_key? :stateid
         url += "&code=#{params[:std_code]}" if params.has_key? :std_code
@@ -48,6 +48,8 @@ module WhizClient
       end
 
       def construct_geo_api_url(params)
+        raise WhizResponseError.new('WhizClient::Client::APP_KEY is not defined', 500) unless defined? APP_KEY
+
         url = "#{GEO_API_URL}#{params[:method_name]}?AppKey=#{APP_KEY}"
         url += "&zid=#{params[:time_zone]}" if params.has_key? :time_zone
         url

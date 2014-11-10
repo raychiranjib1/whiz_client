@@ -70,6 +70,15 @@ Get current time of a particular time zone.
     WhizClient::Geo.current_time_of_timezone(<time zone>)
 
 
+## Error handaling
+
+    begin
+       WhizClient::India.list_all_states
+       rescue WhizClient::WhizResponseError => e
+       puts e.error_message
+    end
+
+    WhizClient::Client::APP_KEY is not defined
 
 ## Contributing
 

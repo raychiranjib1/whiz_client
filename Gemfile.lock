@@ -37,9 +37,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.5)
-  json
   rake
-  rest-client (>= 1.7.2)
   rspec (= 2.13.0)
   webmock (= 1.16.1)
   whiz_client!
