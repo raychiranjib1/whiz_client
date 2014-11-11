@@ -1,5 +1,7 @@
 # WhizClient
 
+[![Gem Version](https://badge.fury.io/rb/whiz_client.svg)](http://badge.fury.io/rb/whiz_client) [![Build Status](https://travis-ci.org/raychiranjib1/whiz_client.svg)](https://travis-ci.org/raychiranjib1/whiz_client) [![Code Climate](https://codeclimate.com/repos/5461c33f6956800ae807a7f0/badges/24da9482a4be8b92b3c3/gpa.svg)](https://codeclimate.com/repos/5461c33f6956800ae807a7f0/feed) [![Dependency Status](https://gemnasium.com/raychiranjib1/whiz_client.svg)](https://gemnasium.com/raychiranjib1/whiz_client) [![License](http://img.shields.io/license/MIT.png)](http://opensource.org/licenses/MIT) [![Coverage Status](https://coveralls.io/repos/raychiranjib1/whiz_client/badge.png)](https://coveralls.io/r/raychiranjib1/whiz_client)
+
 A wrapper ruby library to access WhizApi. Get your api key from www.whizapi.com.
 
 Using this library one can access following services...

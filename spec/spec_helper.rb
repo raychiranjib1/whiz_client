@@ -1,7 +1,9 @@
 require 'webmock/rspec'
 require 'support/request_helper'
 require 'whiz_client'
+require 'coveralls'
 
+Coveralls.wear!
 
 RSpec.configure do |config|
   config.color = true
