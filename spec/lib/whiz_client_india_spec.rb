@@ -87,5 +87,11 @@ describe WhizClient::India do
       expect{ described_class.list_all_states }.to raise_error WhizClient::WhizResponseError
     end
   end
+
+  context 'When method missing' do
+    it 'raise exception' do
+      expect{ described_class.a_undefined_method }.to raise_error WhizClient::WhizResponseError
+    end
+  end
 end
 
