@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Chiranjib Roy"]
   spec.email         = ["raychiranjib1@gmail.com"]
   spec.summary       = %q{A client program for WhizApi}
-  spec.description   = %q{It is wrapper to get access of WhizApi Service like Indian State, City, STD code and various api created by WhizApi.}
+  spec.description   = %q{A wrapper to get access of WhizApi Service like Indian State, City, STD code and various api created by WhizApi.}
   spec.homepage      = ""
   spec.license       = "MIT"
 

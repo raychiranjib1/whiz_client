@@ -47,6 +47,10 @@ Get the list of major cities of a state in India.
 
     WhizClient::India.find_city_by_state(<state-id>)
 
+    example:
+
+    WhizClient::India.find_city_by_state(9).map {|hash| hash['city'] }
+
 Get city/area from the STD code in India.
 
     WhizClient::India.find_city_by_std_codes(<STD-CODE>)
@@ -65,14 +69,14 @@ Get pin code of any address, city, locality in India.
 
 Get list of all time zones in the world.
 
-    WhizClient::Geo.time_zones
+    WhizClient::Geo.list_all_time_zones
 
 Get current time of a particular time zone.
 
-    WhizClient::Geo.current_time_of_timezone(<time zone>)
+    WhizClient::Geo.find_current_time_by_timezone(<time zone>)
 
 
-## Error handaling
+## Error handling
 
     begin
        WhizClient::India.list_all_states
